@@ -25,3 +25,10 @@ export const CATEGORIES = [
     imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
   },
 ];
+
+export const defaultFormFields = {
+  displayName: '',
+  email: '',
+  password: '',
+  confirmPassword: '',
+};
