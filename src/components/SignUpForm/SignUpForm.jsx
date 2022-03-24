@@ -7,17 +7,17 @@ import {
 } from '../../utils/firebase/firebase.utils';
 
 // Constants
-import { defaultFormFields } from '../../constats';
+import { defaultSignUpFormFields } from '../../constats';
 
 // Components
 import FormInput from '../FormInput/FormInput';
-import Button from "../../components/Button"
+import Button from '../../components/Button';
 
 // Styles
-import "./SignUpForm.scss"
+import './SignUpForm.scss';
 
 function SignUpForm() {
-  const [formFields, setFormFields] = useState(defaultFormFields);
+  const [formFields, setFormFields] = useState(defaultSignUpFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
 
   const handleSubmit = async (event) => {
@@ -33,8 +33,8 @@ function SignUpForm() {
         email,
         password
       );
-
       await createUserDocumentFromAuth(user, { displayName });
+      setFormFields(defaultSignUpFormFields);
     } catch (error) {
       if (error.code === 'auth/email-already-in-use') {
         alert('Cannot create user, email al ready in use');
@@ -42,7 +42,7 @@ function SignUpForm() {
         console.log(error);
       }
     }
-    setFormFields(defaultFormFields);
+    setFormFields(defaultSignUpFormFields);
   };
 
   const handleChange = (event) => {
@@ -52,7 +52,7 @@ function SignUpForm() {
 
   return (
     <div className='sign-up-container'>
-      <h2>Sing up with your email and password</h2>
+      <h2>Don't have an account?</h2>
       <span>Sign up with your email and password</span>
       <form onSubmit={handleSubmit}>
         <FormInput

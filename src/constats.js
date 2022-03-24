@@ -26,9 +26,14 @@ export const CATEGORIES = [
   },
 ];
 
-export const defaultFormFields = {
+export const defaultSignUpFormFields = {
   displayName: '',
   email: '',
   password: '',
   confirmPassword: '',
+};
+
+export const defaultSignInFormFields = {
+  email: '',
+  password: '',
 };
